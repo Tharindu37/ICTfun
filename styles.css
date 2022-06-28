@@ -1,0 +1,67 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+.dashboard-main-wrap{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+/* .logo-wrap{
+    padding-right:10px;
+} */
+.user-name-wrap{
+    padding: 0 10px 0 10px;
+}
+.user-name-wrap p{
+    margin-bottom: 0;
+}
+.notification-wrap{
+    padding: 0 10px 0 10px;
+}
+.percentage-course-wrap, .chart-wrap, .available-course-wrap, .your-course-wrap{
+    /* border: 1px solid red; */
+    /* height: 300px; */
+    height: auto;
+}
+
+.percentage-course-wrap, .available-course-wrap, .your-course-wrap{
+    display: flex;
+    align-items: center;
+}
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+}
+.scrollmenu a:hover {
+    background-color: #777;
+}
+.course-div{
+    display: inline-block;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.course-div:first-child{
+    border-radius: 2px;
+}
+.course-div h5{
+    margin: 3px;
+}
+/* .course-div img{
+    border: 1px solid red;
+}  */
+/* .course-div div{
+    border: 1px solid black;
+    
+} */
+/* .menu-title{
+    margin-top: 10px;
+    background-color: #E5E7E9;
+} */
+
+/* register form */   
+/* .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+.card-registration .select-arrow {
+    top: 13px;
+} */
