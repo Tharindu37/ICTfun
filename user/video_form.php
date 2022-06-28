@@ -40,19 +40,19 @@
                     <div class="row">
                     <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
 
-                        <div class="p-3">
+                        <div class="p-3 playlist-wrap">
 
-                        <div class="input-group rounded mb-3" style="border:1px solid red">
+                        <div class="input-group rounded mb-3">
                             <h3>Playlist</h3>
                         </div>
 
-                            <div style="overflow: scroll; border:1px solid red; position: relative; height: 400px">
+                            <div style="overflow: scroll; position: relative; height: 400px">
                                 <div class="list-group">
                                     <?php
                                         $count=0;
                                         while($count<20){
                                     ?>
-                                    <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-video"></i> A simple default list group item</a>
+                                    <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-video"></i> HTML - Responsive web desing - 01 (media quarey)</a>
                                     <?php
                                          $count++;
                                         }
@@ -64,9 +64,9 @@
 
                     </div>
 
-                    <div class="col-md-6 col-lg-7 col-xl-8">
+                    <div class="video-wrap col-md-6 col-lg-7 col-xl-8">
 
-                        <div class="pt-3" data-mdb-perfect-scrollbar="true" style="border:1px solid red; position: relative; height: auto;">
+                        <div class="pt-3" data-mdb-perfect-scrollbar="true" style="position: relative; height: auto;">
                             <div class="ratio ratio-16x9" style="width:auto; height:auto">
                             <iframe
                                 src="https://www.youtube.com/embed/vlDzYIIOYmM"
@@ -76,8 +76,8 @@
                             </div>
                         </div>
 
-                        <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2" style="border:1px solid red;">
-                            <h5>My first video</h5>
+                        <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
+                            <h5>HTML - Responsive web desing - 01 (media quarey)</h5>
                         </div>
 
                     </div>

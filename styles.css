@@ -41,6 +41,25 @@
 }
 
 /* video warp */
-.video-title-wrap{
-    background-color: red;
+.contact-wrap{
+    padding: 5px;  
+}
+.contact-item{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding-top: 15px;
+}
+.chat-body-wrap, .cotactus-wrap{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.chat-body{
+    background-color: #eee;
+}
+.cotact-title-wrap{
+    padding-top: 2px;
+    padding: 5px;
+}
+.playlist-wrap, .video-wrap{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

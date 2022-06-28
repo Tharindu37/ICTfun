@@ -38,26 +38,46 @@
 
                     <div class="row">
                     <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
+                        <div class="cotactus-wrap p-3">
+                            <div style="border-radius: 5px; background-color: #eee;">
+                                <div class="cotact-title-wrap rounded mb-3">
+                                    <h3 style="margin-bottom: 0px;">Contact Us</h3>
+                                </div>
 
-                        <div class="p-3">
+                                <div class="contact-wrap" style="position: relative; height: 400px">
+                                    <div class="contact-item col-md-3 text-center">
+                                        <ul class="list-unstyled mb-0">
+                                            <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                                                <p>314/2/36A Pothanegama, Meegalewa.</p>
+                                            </li>
 
-                        <div class="video-title-wrap rounded mb-3" style="border:1px solid red">
-                            <h3>ICTfun</h3>
-                        </div>
+                                            <li><i class="fas fa-phone md-2 fa-2x"></i>
+                                                <p>076 434543232</p>
+                                            </li>
 
-                            <div style="border:1px solid red; position: relative; height: 400px">
-                                
+                                            <li><i class="fas fa-envelope fa-2x"></i>
+                                                <p>ictfun@gmail.com</p>
+                                            </li>
+
+                                            <li><i class="fab fa-youtube fa-2x"></i>
+                                                <p>https://www.youtube.com</p>
+                                            </li>
+
+                                            <li><i class="fab fa-facebook-f fa-2x"></i>
+                                                <p>https://www.facebook.com</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
-
                     </div>
+                    <div class="chat-body-wrap col-md-6 col-lg-7 col-xl-8 pt-3">
 
-                    <div class="col-md-6 col-lg-7 col-xl-8">
+                        <div class="chat-body overflow-auto pt-3 pe-3" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
 
-                        <div class="overflow-auto pt-3 pe-3" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
-
-                            <div class="d-flex flex-row justify-content-start">
+                            <div>
+                                <div class="d-flex flex-row justify-content-start">
                                 <div>
                                 <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">Lorem ipsum
                                     dolor
@@ -113,13 +133,14 @@
                                     nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 <p class="small me-3 mb-3 rounded-3 text-muted">12:00 PM | Aug 13</p>
                                 </div>
+                            </div>
                             </div>
 
                         
                         </div>
                             <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
                             <input type="text" class="form-control form-control-lg" id="exampleFormControlInput2" placeholder="Type message">
-                            <a class="ms-3" href="#!"><i class="fas fa-paper-plane"></i></a>
+                            <a class="ms-3" href="#!"><i class="fas fa-paper-plane fa-2x"></i></a>
                         </div>
 
                     </div>
