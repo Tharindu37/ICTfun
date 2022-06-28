@@ -4,9 +4,7 @@
 .dashboard-main-wrap{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-/* .logo-wrap{
-    padding-right:10px;
-} */
+
 .user-name-wrap{
     padding: 0 10px 0 10px;
 }
@@ -17,8 +15,6 @@
     padding: 0 10px 0 10px;
 }
 .percentage-course-wrap, .chart-wrap, .available-course-wrap, .your-course-wrap{
-    /* border: 1px solid red; */
-    /* height: 300px; */
     height: auto;
 }
 
@@ -43,25 +39,8 @@
 .course-div h5{
     margin: 3px;
 }
-/* .course-div img{
-    border: 1px solid red;
-}  */
-/* .course-div div{
-    border: 1px solid black;
-    
-} */
-/* .menu-title{
-    margin-top: 10px;
-    background-color: #E5E7E9;
-} */
 
-/* register form */   
-/* .card-registration .select-input.form-control[readonly]:not([disabled]) {
-    font-size: 1rem;
-    line-height: 2.15;
-    padding-left: .75em;
-    padding-right: .75em;
+/* video warp */
+.video-title-wrap{
+    background-color: red;
 }
-.card-registration .select-arrow {
-    top: 13px;
-} */

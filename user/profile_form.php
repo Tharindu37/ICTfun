@@ -88,7 +88,7 @@
                         <div class="col-sm-9">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-edit"></i>&emsp;&emsp;
                             <i class="fas fa-save"></i>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                         <div class="col-sm-9">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-edit"></i>&emsp;&emsp;
                             <i class="fas fa-save"></i>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                         <div class="col-sm-9">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-edit"></i>&emsp;&emsp;
                             <i class="fas fa-save"></i>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                         <div class="col-sm-9">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-edit"></i>&emsp;&emsp;
                             <i class="fas fa-save"></i>
                         </div>
                     </div>
@@ -147,7 +147,19 @@
                                 <input type="radio" class="form-check-input" disabled>other
                                 <label class="form-check-label"></label>
                             </div>
-                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-edit"></i>&emsp;&emsp;
+                            <i class="fas fa-save"></i>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Mobile Number</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
+                            <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
+                            <i class="fas fa-edit"></i>&emsp;&emsp;
                             <i class="fas fa-save"></i>
                         </div>
                     </div>
@@ -159,7 +171,7 @@
                         <div class="col-sm-9">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-edit"></i>&emsp;&emsp;
                             <i class="fas fa-save"></i>
                         </div>
                     </div>
@@ -171,7 +183,7 @@
                         <div class="col-sm-9">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-edit"></i>&emsp;&emsp;
                             <i class="fas fa-save"></i>
                         </div>
                     </div>
@@ -192,7 +204,7 @@
                         <div class="col-sm-9">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input style="border:none" class="mb-0" type="Password" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-edit"></i>&emsp;&emsp;
                             <i class="fas fa-save"></i>
                         </div>
                     </div>

@@ -17,8 +17,20 @@
         require "header_from.php";
     ?>
 
-    <section class="vh-100 gradient-custom" style="background-color: #eee;">
+    <section class="vh-150 gradient-custom" style="background-color: #eee;">
         <div class="container py-5 h-100">
+
+            <div class="row">
+                <div class="col">
+                    <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Register</li>
+                    </ol>
+                    </nav>
+                </div>
+            </div>
+
             <div class="row justify-content-center align-items-center h-100">
             <div class="col-12 col-lg-9 col-xl-7">
                 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
