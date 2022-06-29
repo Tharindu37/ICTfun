@@ -33,18 +33,18 @@
             <div class="row">
             <div class="col-md-12">
 
-                <div class="card" id="chat3" style="border-radius: 15px;">
+                <div class="card" id="chat3" style="border-radius: 5px;">
                 <div class="card-body">
 
                     <div class="row">
                     <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
                         <div class="cotactus-wrap p-3">
-                            <div style="border-radius: 5px; background-color: #eee;">
-                                <div class="cotact-title-wrap rounded mb-3">
+                            <div style="border-radius: 5px; background-color: #eee;padding:10px">
+                                <div class="cotact-title-wrap rounded">
                                     <h3 style="margin-bottom: 0px;">Contact Us</h3>
                                 </div>
 
-                                <div class="contact-wrap" style="position: relative; height: 400px">
+                                <div class="contact-wrap" style="position: relative; height: auto">
                                     <div class="contact-item col-md-3 text-center">
                                         <ul class="list-unstyled mb-0">
                                             <li><i class="fas fa-map-marker-alt fa-2x"></i>
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="chat-body-wrap col-md-6 col-lg-7 col-xl-8 pt-3">
+                    <div class="chat-body-wrap col-md-6 col-lg-7 col-xl-8 pt-3 pb-3">
 
                         <div class="chat-body overflow-auto pt-3 pe-3" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
 
@@ -138,7 +138,7 @@
 
                         
                         </div>
-                            <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
+                            <div class="text-muted d-flex justify-content-start align-items-center pe-3 mt-2">
                             <input type="text" class="form-control form-control-lg" id="exampleFormControlInput2" placeholder="Type message">
                             <a class="ms-3" href="#!"><i class="fas fa-paper-plane fa-2x"></i></a>
                         </div>

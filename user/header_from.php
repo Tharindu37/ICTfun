@@ -14,7 +14,7 @@
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
               <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
             </form> -->
-            <i class="fa-solid fa-bell notification-wrap"></i>
+            <a href="contact_form.php"><i class="fa-solid fa-bell notification-wrap"></i></a>
             <div class="user-name-wrap">
                 <p>Hi, Tharindu</p>
             </div>
