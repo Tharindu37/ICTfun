@@ -11,6 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        #form_response{
+            display:none;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -36,24 +43,27 @@
                 <div class="card-body p-5 text-center">
 
                     <h3 class="mb-5">Sign in</h3>
+                        <div id="form_response" class="alert alert-danger" role="alert">
+                        </div>
+                    <form action="" id="login_form">
+                        <div class="form-outline mb-4">
+                        <input name="email" type="email" id="userEmail" class="form-control form-control-lg" />
+                        <label class="form-label" for="typeEmailX-2">Email</label>
+                        </div>
 
-                    <div class="form-outline mb-4">
-                    <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typeEmailX-2">Email</label>
-                    </div>
+                        <div class="form-outline mb-4">
+                        <input name="password" type="password" id="userPassword" class="form-control form-control-lg" />
+                        <label class="form-label" for="typePasswordX-2">Password</label>
+                        </div>
 
-                    <div class="form-outline mb-4">
-                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typePasswordX-2">Password</label>
-                    </div>
+                        <!-- Checkbox -->
+                        <div class="form-check d-flex justify-content-start mb-4">
+                        <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                        <label class="form-check-label" for="form1Example3"> Remember password </label>
+                        </div>
 
-                    <!-- Checkbox -->
-                    <div class="form-check d-flex justify-content-start mb-4">
-                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-                    <label class="form-check-label" for="form1Example3"> Remember password </label>
-                    </div>
-
-                    <button class="btn btn-primary btn-lg btn-block" type="submit" style="width:100%">Login</button>
+                        <button id="login_btn" class="btn btn-primary btn-lg btn-block" type="button" style="width:100%">Login</button>
+                    </form>
 
                     <hr class="my-4">
                     <a href="register_form.php">
@@ -67,6 +77,8 @@
             </div>
         <!-- </div> -->
     </section>
+
+    <script src="../script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
