@@ -73,5 +73,43 @@
         }else{
             echo "All field are requred";
         }
+    }else if(isset($_POST['web_url'])){
+        $web_url=$_POST['web_url'];
+            $sql_query="UPDATE user SET web_url='$web_url' WHERE user_id='$user_id'";
+            if($database_connection->query($sql_query)===TRUE){
+                echo $web_url;    
+        }
+    }else if(isset($_POST['github_url'])){
+        $github_url=$_POST['github_url'];
+        $sql_query="UPDATE user SET github_url='$github_url' WHERE user_id='$user_id'";
+        if($database_connection->query($sql_query)===TRUE){
+            echo $github_url;    
+        }
+    }else if(isset($_POST['twitter_url'])){
+        $twitter_url=$_POST['twitter_url'];
+            $sql_query="UPDATE user SET twitter_url='$twitter_url' WHERE user_id='$user_id'";
+            if($database_connection->query($sql_query)===TRUE){
+                echo $twitter_url;    
+        }
+    }else if(isset($_POST['instagram_url'])){
+        $instagram_url=$_POST['instagram_url'];
+            $sql_query="UPDATE user SET instagram_url='$instagram_url' WHERE user_id='$user_id'";
+            if($database_connection->query($sql_query)===TRUE){
+                echo $instagram_url;    
+        }
+    }else if(isset($_POST['facebook_url'])){
+        $facebook_url=$_POST['facebook_url'];
+        $sql_query="UPDATE user SET facebook_url='$facebook_url' WHERE user_id='$user_id'";
+        if($database_connection->query($sql_query)===TRUE){
+            echo $facebook_url;    
+        }
+    }else if(isset($_FILES['profile_pic_url'])){
+        $save_location="profile_pic/";
+        $file_save=$save_location."pro_pic".$user_id.".jpg";
+        move_uploaded_file($_FILES['profile_pic_url']['tmp_name'],$file_save);
+        $sql_query="UPDATE user SET profile_pic_url='$file_save' WHERE user_id='$user_id'";
+        if($database_connection->query($sql_query)===TRUE){
+            header("location:profile_form.php");
+        }  
     }
 ?>

@@ -102,7 +102,7 @@ $(document).ready(function(){
             $( "#first_name" ).prop( "disabled", true );
         }
     });
-    $('#last_name-edit').click(function(){
+    $('#last_name_edit').click(function(){
         if($('#last_name').prop('disabled')){
             $( "#last_name" ).prop( "disabled", false );
             $('#last_name_save').click(function(){
@@ -244,6 +244,140 @@ $(document).ready(function(){
                     $( "#mobile_number" ).prop( "disabled", true );
                 }
             });
+        });
+        $('#web_url_edit').click(function(){
+            if($('#web_url').prop('disabled')){
+                $( "#web_url" ).prop( "disabled", false );
+                $('#web_url_save').click(function(){
+                    var web_url=$('#web_url').val();
+                    $.ajax({
+                        url:"update_profile.php",
+                        method:"POST",
+                        data:{'web_url':web_url},
+                        dataType:"text",
+                        beforeSend:function(){
+                            $( "#web_url" ).prop( "disabled", true );
+                        },
+                        success:function(data){
+                            $( "#web_url" ).prop( "disabled", true );
+                            $('#web_url').attr("placeholder",data);
+                        },
+                        error:function(data){
+                            $( "#web_url" ).prop( "disabled", true );
+                        }
+                    });
+                });
+            }else{
+                $( "#web_url" ).prop( "disabled", true );
+            }
+        });
+        $('#github_url_edit').click(function(){
+            if($('#github_url').prop('disabled')){
+                $( "#github_url" ).prop( "disabled", false );
+                $('#github_url_save').click(function(){
+                    var github_url=$('#github_url').val();
+                    $.ajax({
+                        url:"update_profile.php",
+                        method:"POST",
+                        data:{'github_url':github_url},
+                        dataType:"text",
+                        beforeSend:function(){
+                            $( "#github_url" ).prop( "disabled", true );
+                        },
+                        success:function(data){
+                            $( "#github_url" ).prop( "disabled", true );
+                            $('#github_url').attr("placeholder",data);
+                        },
+                        error:function(data){
+                            $( "#github_url" ).prop( "disabled", true );
+                        }
+                    });
+                });
+            }else{
+                $( "#github_url" ).prop( "disabled", true );
+            }
+        });
+        $('#twitter_url_edit').click(function(){
+            if($('#twitter_url').prop('disabled')){
+                $( "#twitter_url" ).prop( "disabled", false );
+                $('#twitter_url_save').click(function(){
+                    var twitter_url=$('#twitter_url').val();
+                    $.ajax({
+                        url:"update_profile.php",
+                        method:"POST",
+                        data:{'twitter_url':twitter_url},
+                        dataType:"text",
+                        beforeSend:function(){
+                            $( "#twitter_url" ).prop( "disabled", true );
+                        },
+                        success:function(data){
+                            $( "#twitter_url" ).prop( "disabled", true );
+                            $('#twitter_url').attr("placeholder",data);
+                        },
+                        error:function(data){
+                            $( "#twitter_url" ).prop( "disabled", true );
+                        }
+                    });
+                });
+            }else{
+                $( "#twitter_url" ).prop( "disabled", true );
+            }
+        });
+        $('#instagram_url_edit').click(function(){
+            if($('#instagram_url').prop('disabled')){
+                $( "#instagram_url" ).prop( "disabled", false );
+                $('#instagram_url_save').click(function(){
+                    var instagram_url=$('#instagram_url').val();
+                    $.ajax({
+                        url:"update_profile.php",
+                        method:"POST",
+                        data:{'instagram_url':instagram_url},
+                        dataType:"text",
+                        beforeSend:function(){
+                            $( "#instagram_url" ).prop( "disabled", true );
+                        },
+                        success:function(data){
+                            $( "#instagram_url" ).prop( "disabled", true );
+                            $('#instagram_url').attr("placeholder",data);
+                        },
+                        error:function(data){
+                            $( "#instagram_url" ).prop( "disabled", true );
+                        }
+                    });
+                });
+            }else{
+                $( "#instagram_url" ).prop( "disabled", true );
+            }
+        });
+        $('#facebook_url_edit').click(function(){
+            if($('#facebook_url').prop('disabled')){
+                $( "#facebook_url" ).prop( "disabled", false );
+                $('#facebook_url_save').click(function(){
+                    var facebook_url=$('#facebook_url').val();
+                    $.ajax({
+                        url:"update_profile.php",
+                        method:"POST",
+                        data:{'facebook_url':facebook_url},
+                        dataType:"text",
+                        beforeSend:function(){
+                            $( "#facebook_url" ).prop( "disabled", true );
+                        },
+                        success:function(data){
+                            $( "#facebook_url" ).prop( "disabled", true );
+                            $('#facebook_url').attr("placeholder",data);
+
+                        },
+                        error:function(data){
+                            $( "#facebook_url" ).prop( "disabled", true );
+                        }
+                    });
+                });
+            }else{
+                $( "#facebook_url" ).prop( "disabled", true );
+            }
+        });
+        $('#profile_pic_url').change(function(){
+            $('#pro_pic_submit').trigger("click");    
         });
 });
 

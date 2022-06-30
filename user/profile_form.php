@@ -1,5 +1,14 @@
 <?php
   require "../db_connection.php";
+    
+    if(isset($_COOKIE['user_id'])){
+        $user_id=$_COOKIE['user_id'];
+        if($user_id==""){
+            header("location:dashboard_form.php");
+        }
+    }else{
+        header("location:dashboard_form.php");
+    }
 
     $first_name="";
     $last_name="";
@@ -8,6 +17,13 @@
     $email="";
     $phone_number="";
     $description="";
+    $profile_pic_url="";
+
+    $web_url="";
+    $facebook_url="";
+    $instagram_url="";
+    $twitter_url="";
+    $github_url="";
     if(isset($_COOKIE['user_id'])){
         $user_id=$_COOKIE['user_id'];
         $sql_query="SELECT * FROM user WHERE user_id='$user_id'";
@@ -20,6 +36,13 @@
         $email=$row['email'];
         $phone_number=$row['mobile_number'];
         $description=$row['description'];
+        $profile_pic_url=$row['profile_pic_url'];
+
+        $web_url=$row['web_url'];
+        $facebook_url=$row['facebook_url'];
+        $instagram_url=$row['instagram_url'];
+        $twitter_url=$row['twitter_url'];
+        $github_url=$row['github_url'];
     }
 ?>
 <!DOCTYPE html>
@@ -65,8 +88,17 @@
             <div class="col-lg-4">
                 <div class="card mb-4">
                 <div class="card-body text-center">
-                    <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=" alt="avatar"
-                    class="rounded-circle img-fluid" style="width: 150px;">
+                    <div>
+                    
+                    <form action="update_profile.php" method="post" enctype="multipart/form-data">
+                    <label for="profile_pic_url">
+                            <img id="profile_img" src="<?php if($profile_pic_url=="") echo "profile_pic/pro_pic.jpg"; else echo $profile_pic_url; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px">
+                        </label>
+                        <input name="profile_pic_url" id="profile_pic_url" style="display:none" type="file" />
+                        <input id="pro_pic_submit" type="submit" style="display:none">
+                    </div>
+                    </form>
+                    
                     <h5 id="profile_name" class="my-3"><?php echo $first_name." ".$last_name; ?></h5>
                     <p class="text-muted mb-1"><?php echo $email; ?></p>
                     <p id="profile_description" class="text-muted mb-4"><?php echo $description; ?></p>
@@ -77,33 +109,33 @@
                     <ul class="list-group list-group-flush rounded-3">
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="fas fa-globe fa-lg text-warning"></i>
-                        <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="https://mdbootstrap.com" disabled>
-                        <i class="fas fa-edit"></i>
-                        <i class="fas fa-save"></i>
+                        <input id="web_url" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $web_url; ?>" disabled>
+                        <i id="web_url_edit" class="fas fa-edit"></i>
+                        <i id="web_url_save" class="fas fa-save"></i>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="fab fa-github fa-lg" style="color: #333333;"></i>
-                        <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="mdbootstrap" disabled>
-                        <i class="fas fa-edit"></i>
-                        <i class="fas fa-save"></i>
+                        <input id="github_url" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $github_url; ?>" disabled>
+                        <i id="github_url_edit" class="fas fa-edit"></i>
+                        <i id="github_url_save" class="fas fa-save"></i>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-                        <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="@mdbootstrap" disabled>
-                        <i class="fas fa-edit"></i>
-                        <i class="fas fa-save"></i>
+                        <input id="twitter_url" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $twitter_url; ?>" disabled>
+                        <i id="twitter_url_edit" class="fas fa-edit"></i>
+                        <i id="twitter_url_save" class="fas fa-save"></i>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-                        <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="mdbootstrap" disabled>
-                        <i class="fas fa-edit"></i>
-                        <i class="fas fa-save"></i>
+                        <input id="instagram_url" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $instagram_url; ?>" disabled>
+                        <i id="instagram_url_edit" class="fas fa-edit"></i>
+                        <i id="instagram_url_save" class="fas fa-save"></i>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                        <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="https://mdbootstrap.com" disabled>
-                        <i class="fas fa-edit"></i>
-                        <i class="fas fa-save"></i>
+                        <input id="facebook_url" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $facebook_url; ?>" disabled>
+                        <i id="facebook_url_edit" class="fas fa-edit"></i>
+                        <i id="facebook_url_save" class="fas fa-save"></i>
                     </li>
                     </ul>
                 </div>

@@ -1,3 +1,13 @@
+<?php
+    if(isset($_COOKIE['user_id'])){
+        $user_id=$_COOKIE['user_id'];
+        if($user_id==""){
+            header("location:dashboard_form.php");
+        }
+    }else{
+        header("location:dashboard_form.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +46,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Delete Your Account</h5>
                     <p class="card-text">All data will be Delete!</p>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <a href="delete_account.php" class="btn btn-danger">Delete</a>
                 </div>
                 <div class="card-footer text-muted">
                     ***

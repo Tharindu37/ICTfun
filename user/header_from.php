@@ -2,12 +2,15 @@
   require "../db_connection.php";
 
   $name_status="Register/Login";
+  $profile_pic_url="";
+  $user_id="";
   if(isset($_COOKIE['user_id'])){
     $user_id=$_COOKIE['user_id'];
     $sql_query="SELECT * FROM user WHERE user_id='$user_id'";
     $result=$database_connection->query($sql_query);
     $row=$result->fetch_assoc();
     $first_name=$row['first_name'];
+    $profile_pic_url=$row['profile_pic_url'];
     $name_status= "Hi, ".$first_name;
   }
 ?>
@@ -34,15 +37,15 @@
     
             <div class="dropdown text-end">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                <img id="header_img" src="<?php if($profile_pic_url=="") echo "profile_pic/pro_pic.jpg"; else echo $profile_pic_url; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
               </a>
               <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                <li><a class="dropdown-item" href="profile_form.php"><i class="fa-solid fa-address-card"></i> Profile</a></li>
-                <li><a class="dropdown-item" href="settings_form.php"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                <li><a class="<?php if($user_id=="") echo "disabled"; ?> dropdown-item" href="profile_form.php"><i class="fa-solid fa-address-card"></i> Profile</a></li>
+                <li><a class="<?php if($user_id=="") echo "disabled"; ?> dropdown-item" href="settings_form.php"><i class="fa-solid fa-gear"></i> Settings</a></li>
                 <li><a class="dropdown-item" href="login_form.php"><i class="fa-solid fa-user"></i> Login</a></li>
                 <li><a class="dropdown-item" href="register_form.php"><i class="fa-solid fa-right-to-bracket"></i> Register</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+                <li><a class="<?php if($user_id=="") echo "disabled"; ?> dropdown-item" href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
               </ul>
             </div>
           </div>

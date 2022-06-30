@@ -1,3 +1,13 @@
+<?php
+    if(isset($_COOKIE['user_id'])){
+        $user_id=$_COOKIE['user_id'];
+        if($user_id==""){
+            header("location:dashboard_form.php");
+        }
+    }else{
+        header("location:dashboard_form.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

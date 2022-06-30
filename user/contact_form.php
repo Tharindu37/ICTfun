@@ -90,10 +90,10 @@
 
                             <div class="d-flex flex-row justify-content-end">
                                 <div>
-                                <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Ut enim ad minim veniam,
+                                <p class="small p-2 ms-3 mb-1 text-white rounded-3 bg-primary">Ut enim ad minim veniam,
                                     quis
                                     nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <p class="small me-3 mb-3 rounded-3 text-muted">12:00 PM | Aug 13</p>
+                                <p class="small ms-3 mb-3 rounded-3 text-muted">12:00 PM | Aug 13</p>
                                 </div>
                             </div>
                             <div class="d-flex flex-row justify-content-start">
@@ -109,10 +109,10 @@
 
                             <div class="d-flex flex-row justify-content-end">
                                 <div>
-                                <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Ut enim ad minim veniam,
+                                <p class="small p-2 ms-3 mb-1 text-white rounded-3 bg-primary">Ut enim ad minim veniam,
                                     quis
                                     nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <p class="small me-3 mb-3 rounded-3 text-muted">12:00 PM | Aug 13</p>
+                                <p class="small ms-3 mb-3 rounded-3 text-muted">12:00 PM | Aug 13</p>
                                 </div>
                             </div>
                             <div class="d-flex flex-row justify-content-start">
@@ -128,10 +128,10 @@
 
                             <div class="d-flex flex-row justify-content-end">
                                 <div>
-                                <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">Ut enim ad minim veniam,
+                                <p class="small p-2 ms-3 mb-1 text-white rounded-3 bg-primary">Ut enim ad minim veniam,
                                     quis
                                     nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <p class="small me-3 mb-3 rounded-3 text-muted">12:00 PM | Aug 13</p>
+                                <p class="small ms-3 mb-3 rounded-3 text-muted">12:00 PM | Aug 13</p>
                                 </div>
                             </div>
                             </div>
