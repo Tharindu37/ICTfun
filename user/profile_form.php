@@ -1,3 +1,27 @@
+<?php
+  require "../db_connection.php";
+
+    $first_name="";
+    $last_name="";
+    $birthday="";
+    $gender="";
+    $email="";
+    $phone_number="";
+    $description="";
+    if(isset($_COOKIE['user_id'])){
+        $user_id=$_COOKIE['user_id'];
+        $sql_query="SELECT * FROM user WHERE user_id='$user_id'";
+        $result=$database_connection->query($sql_query);
+        $row=$result->fetch_assoc();
+        $first_name=$row['first_name'];
+        $last_name=$row['last_name'];
+        $birthday=$row['birthday'];
+        $gender=$row['gender'];
+        $email=$row['email'];
+        $phone_number=$row['mobile_number'];
+        $description=$row['description'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +35,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        #form_response{
+            display:none;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -36,9 +67,9 @@
                 <div class="card-body text-center">
                     <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=" alt="avatar"
                     class="rounded-circle img-fluid" style="width: 150px;">
-                    <h5 class="my-3">John Smith</h5>
-                    <p class="text-muted mb-1">Full Stack Developer</p>
-                    <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                    <h5 id="profile_name" class="my-3"><?php echo $first_name." ".$last_name; ?></h5>
+                    <p class="text-muted mb-1"><?php echo $email; ?></p>
+                    <p id="profile_description" class="text-muted mb-4"><?php echo $description; ?></p>
                 </div>
                 </div>
                 <div class="card mb-4 mb-lg-0">
@@ -85,11 +116,11 @@
                         <div class="col-sm-3">
                             <p class="mb-0">First Name</p>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
-                            <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>&emsp;&emsp;
-                            <i class="fas fa-save"></i>
+                            <input id="first_name" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $first_name; ?>" disabled>
+                            <i id="first_name_edit" class="fas fa-edit"></i>
+                            <i id="first_name_save" class="fas fa-save"></i>
                         </div>
                     </div>
                     <hr>
@@ -97,23 +128,11 @@
                         <div class="col-sm-3">
                             <p class="mb-0">Last Name</p>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
-                            <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>&emsp;&emsp;
-                            <i class="fas fa-save"></i>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <p class="mb-0">First Name</p>
-                        </div>
-                        <div class="col-sm-9">
-                            <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
-                            <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>&emsp;&emsp;
-                            <i class="fas fa-save"></i>
+                            <input id="last_name" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $last_name; ?>" disabled>
+                            <i id="last_name-edit" class="fas fa-edit"></i>
+                            <i id="last_name_save" class="fas fa-save"></i>
                         </div>
                     </div>
                     <hr>
@@ -121,11 +140,11 @@
                         <div class="col-sm-3">
                             <p class="mb-0">Birthday</p>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
-                            <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>&emsp;&emsp;
-                            <i class="fas fa-save"></i>
+                            <input id="birthday" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $birthday; ?>" disabled>
+                            <i id="birthday_edit" class="fas fa-edit"></i>
+                            <i id="birthday_save" class="fas fa-save"></i>
                         </div>
                     </div>
                     <hr>
@@ -133,22 +152,22 @@
                         <div class="col-sm-3">
                             <p class="mb-0">Gender</p>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" disabled>Male
+                                <input type="radio" class="form-check-input" disabled <?php if($gender=='male') echo "checked"; ?>>Male
                                 <label class="form-check-label"></label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" disabled>Female
+                                <input type="radio" class="form-check-input" disabled <?php if($gender=='femal') echo "checked"; ?>>Female
                                 <label class="form-check-label"></label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" disabled>other
+                                <input type="radio" class="form-check-input" disabled <?php if($gender=='other') echo "checked"; ?>>other
                                 <label class="form-check-label"></label>
                             </div>
-                            <i class="fas fa-edit"></i>&emsp;&emsp;
-                            <i class="fas fa-save"></i>
+                            <!-- <i class="fas fa-edit"></i>&emsp;&emsp;
+                            <i class="fas fa-save"></i> -->
                         </div>
                     </div>
                     <hr>
@@ -156,11 +175,11 @@
                         <div class="col-sm-3">
                             <p class="mb-0">Mobile Number</p>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
-                            <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>&emsp;&emsp;
-                            <i class="fas fa-save"></i>
+                            <input id="mobile_number" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $phone_number; ?>" disabled>
+                            <i id="mobile_number_edit" class="fas fa-edit"></i>
+                            <i id="mobile_number_save" class="fas fa-save"></i>
                         </div>
                     </div>
                     <hr>
@@ -168,44 +187,46 @@
                         <div class="col-sm-3">
                             <p class="mb-0">Description</p>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
-                            <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>&emsp;&emsp;
-                            <i class="fas fa-save"></i>
+                            <input id="description" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $description; ?>" disabled>
+                            <i id="description_edit" class="fas fa-edit"></i>
+                            <i id="description_save" class="fas fa-save"></i>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-3 d-flex justify-content-between">
                             <p class="mb-0">Email</p>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
-                            <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>&emsp;&emsp;
-                            <i class="fas fa-save"></i>
+                            <input style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $email; ?>" disabled>
+                            <!-- <i class="fas fa-edit"></i>&emsp;&emsp;
+                            <i class="fas fa-save"></i> -->
                         </div>
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-sm-3">
-                            <p class="mb-0">Old Password</p>
+                        <div id="form_response" class="alert alert-danger" role="alert">
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Change Passward</p>
+                        </div>
+                        <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
-                            <input style="border:none" class="mb-0" type="password" class="form-control" placeholder="Johnatan Smith" disabled>
+                            <input id="old_password" style="border:none" class="mb-0" type="password" class="form-control" placeholder="Old Password">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-3">
-                            <p class="mb-0">New Password</p>
+                            <!-- <p class="mb-0">New Password</p> -->
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
-                            <input style="border:none" class="mb-0" type="Password" class="form-control" placeholder="Johnatan Smith" disabled>
-                            <i class="fas fa-edit"></i>&emsp;&emsp;
-                            <i class="fas fa-save"></i>
+                            <input id="new_password" style="border:none" class="mb-0" type="Password" class="form-control" placeholder="New Password">
+                            <!-- <i class="fas fa-edit"></i>&emsp;&emsp; -->
+                            <i id="new_password_save" class="fas fa-save"></i>
                         </div>
                     </div>
                 </div>
@@ -214,6 +235,8 @@
             </div>
         </div>
     </section>
+
+    <script src="../script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

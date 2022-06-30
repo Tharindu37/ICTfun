@@ -1,3 +1,16 @@
+<?php
+  require "../db_connection.php";
+
+  $name_status="Register/Login";
+  if(isset($_COOKIE['user_id'])){
+    $user_id=$_COOKIE['user_id'];
+    $sql_query="SELECT * FROM user WHERE user_id='$user_id'";
+    $result=$database_connection->query($sql_query);
+    $row=$result->fetch_assoc();
+    $first_name=$row['first_name'];
+    $name_status= "Hi, ".$first_name;
+  }
+?>
 <header class="p-3 border-bottom">
         <div class="container-fluid">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -16,7 +29,7 @@
             </form> -->
             <a href="contact_form.php"><i class="fa-solid fa-bell notification-wrap"></i></a>
             <div class="user-name-wrap">
-                <p>Hi, Tharindu</p>
+                <p id="name_status"><?php echo $name_status; ?></p>
             </div>
     
             <div class="dropdown text-end">
@@ -29,7 +42,7 @@
                 <li><a class="dropdown-item" href="login_form.php"><i class="fa-solid fa-user"></i> Login</a></li>
                 <li><a class="dropdown-item" href="register_form.php"><i class="fa-solid fa-right-to-bracket"></i> Register</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="signout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign out</a></li>
+                <li><a class="dropdown-item" href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
               </ul>
             </div>
           </div>
