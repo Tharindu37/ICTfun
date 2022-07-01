@@ -21,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <?php
@@ -59,35 +60,45 @@
                             <div style="overflow: scroll; position: relative; height: 400px">
                                 <div class="list-group">
                                     <?php
-                                        $count=0;
-                                        while($count<20){
+                                        require "video.php";
+                                        if($result->num_rows>0){
+                                            
+                                            while($data_row=$result->fetch_assoc()){
                                     ?>
-                                    <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-video"></i> HTML - Responsive web desing - 01 (media quarey)</a>
+                                    <a onclick="playVideo(<?php echo $data_row['video_id'] ?>)" class="list-group-item list-group-item-action"><i class="fas fa-video"></i> <?php echo $data_row['video_name']; ?></a>
                                     <?php
-                                         $count++;
+                                            }
                                         }
                                     ?>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
-
                     <div class="video-wrap col-md-6 col-lg-7 col-xl-8">
 
                         <div class="pt-3" data-mdb-perfect-scrollbar="true" style="position: relative; height: auto;">
-                            <div class="ratio ratio-16x9" style="width:auto; height:auto">
-                            <iframe
-                                src="https://www.youtube.com/embed/vlDzYIIOYmM"
+                            <div id="video_player" class="ratio ratio-16x9" style="width:auto; height:auto">    
+                                        <?php
+                                            require "video.php";
+                                            if($result->num_rows>0){
+                                                $first_data_row=$result->fetch_assoc();
+                                                echo $first_data_row['video_url'];
+                                        ?>
+                            <!-- <iframe id="video_player"
+                                src="https://youtu.be/hT9Lgf2_dbw"
                                 title="YouTube video"
                                 allowfullscreen
-                            ></iframe>
+                            ></iframe> -->
                             </div>
                         </div>
 
                         <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
-                            <h5>HTML - Responsive web desing - 01 (media quarey)</h5>
+                            <h5 id="video_title">
+                                <?php
+                                            echo $first_data_row['video_name'];
+                                        }
+                                ?>
+                            </h5>
                         </div>
 
                     </div>
@@ -101,6 +112,8 @@
 
         </div>
         </section>
+
+    <script src="../script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

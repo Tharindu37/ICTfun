@@ -395,3 +395,19 @@ function getCourseId(course_id){
          error:function(data){}
     });
 }
+
+function playVideo(video_id){
+    $.ajax({
+        url:"play_video.php",
+        method:"POST",
+        data:{'video_id':video_id},
+        dataType:"json",
+        beforeSend:function(){},
+        success:function(data){
+            console.log(data);
+            $('#video_player').html(data['video_url']);
+            $('#video_title').html(data['video_name']);
+        },
+        error:function(data){}
+    });
+}
