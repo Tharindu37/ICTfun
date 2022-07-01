@@ -103,6 +103,7 @@ $(document).ready(function(){
         }
     });
     $('#last_name_edit').click(function(){
+        alert("click");
         if($('#last_name').prop('disabled')){
             $( "#last_name" ).prop( "disabled", false );
             $('#last_name_save').click(function(){
@@ -381,4 +382,16 @@ $(document).ready(function(){
         });
 });
 
-
+function getCourseId(course_id){
+    $.ajax({
+        url:"add_my_course.php",
+        method:"POST",
+        data:{'course_id':course_id},
+        dataType:"text",
+        beforeSend:function(){},
+        success:function(data){
+            window.location.replace("http://localhost/findx_project/ICTfun/user/video_form.php?course_id="+data);
+        },
+         error:function(data){}
+    });
+}

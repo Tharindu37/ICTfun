@@ -163,7 +163,7 @@
                         <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input id="last_name" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $last_name; ?>" disabled>
-                            <i id="last_name-edit" class="fas fa-edit"></i>
+                            <i id="last_name_edit" class="fas fa-edit"></i>
                             <i id="last_name_save" class="fas fa-save"></i>
                         </div>
                     </div>
