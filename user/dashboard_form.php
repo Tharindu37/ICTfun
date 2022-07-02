@@ -68,28 +68,35 @@
                 <div class="card-body p-0">
                         <div class="card mb-4 mb-md-0">
                         <div class="card-body">
-                            <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
+                            <p class="mb-4"><span class="text-primary font-italic me-1">Course Status</span> 
                             </p>
-                            <p class="mb-1" style="font-size: .77rem;">HTML</p>
+                            <?php
+                                require "my_course.php";
+                                if(isset($_COOKIE['user_id'])){
+                                    if($result->num_rows>0){
+                                        while($data_row=$result->fetch_assoc()){
+                                            $course_id=$data_row['course_id'];
+                                            $sql_query="SELECT * FROM course WHERE course_id=$course_id";
+                                            $my_course_result=$database_connection->query($sql_query);
+                                            $my_course=$my_course_result->fetch_assoc();
+    
+                                            $sql_query1="SELECT * FROM my_course WHERE user_id='$user_id' and course_id='$course_id'";
+                                            $my_course_result1=$database_connection->query($sql_query1);
+                                            if($my_course_result1->num_rows>0){
+                                                $my_course1=$my_course_result1->fetch_assoc();
+                            ?>
+                            <p class="mt-4 mb-1" style="font-size: .77rem;"><?php echo $my_course['course_name'] ?></p>
                             <div class="progress rounded" style="height: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                            <div class="progress-bar" role="progressbar" style="width: <?php echo $my_course1['done_percentage']; ?>%" aria-valuenow="55"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <p class="mt-4 mb-1" style="font-size: .77rem;">CSS</p>
-                            <div class="progress rounded" style="height: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <p class="mt-4 mb-1" style="font-size: .77rem;">Javascript</p>
-                            <div class="progress rounded" style="height: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <p class="mt-4 mb-1" style="font-size: .77rem;">PHP</p>
-                            <div class="progress rounded" style="height: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+
+                            <?php
+                                            }
+                                        }
+                                    }
+                                }
+                            ?>
                         </div>
                         </div>
                 </div>

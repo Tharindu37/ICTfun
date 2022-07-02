@@ -5,5 +5,5 @@
 
         $sql="SELECT course_id FROM my_course WHERE user_id=$user_id";
         $result=$database_connection->query($sql);
-    }
+    }else
 ?>

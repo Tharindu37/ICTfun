@@ -191,7 +191,7 @@
                                 <label class="form-check-label"></label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" disabled <?php if($gender=='femal') echo "checked"; ?>>Female
+                                <input type="radio" class="form-check-input" disabled <?php if($gender=='female') echo "checked"; ?>>Female
                                 <label class="form-check-label"></label>
                             </div>
                             <div class="form-check">

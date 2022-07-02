@@ -1,5 +1,6 @@
 <?php
     if(isset($_COOKIE['user_id'])){
+        $course_id=$_GET['course_id'];
         $user_id=$_COOKIE['user_id'];
         if($user_id==""){
             header("location:dashboard_form.php");
@@ -27,7 +28,7 @@
     <?php
         require "header_from.php";
     ?>
-    
+    <input type="number"  id="course_id_tag" value="<?php echo $course_id; ?>" style="display:none">
     <section style="background-color: #eee;">
         <div class="container py-5">
             <div class="row">
@@ -65,6 +66,7 @@
                                             
                                             while($data_row=$result->fetch_assoc()){
                                     ?>
+                                    <input type="number" value="<?php echo $data_row['video_id'] ?>" style="display:none" id="video_id_tag">
                                     <a onclick="playVideo(<?php echo $data_row['video_id'] ?>)" class="list-group-item list-group-item-action"><i class="fas fa-video"></i> <?php echo $data_row['video_name']; ?></a>
                                     <?php
                                             }

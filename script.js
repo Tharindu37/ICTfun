@@ -437,7 +437,8 @@ function onPlayerReady(event) {
 //    the player should play for six seconds and then stop.
 var done = false;
 function onPlayerStateChange(event) {
-    console.log(event.data);
+    //console.log(event.data);
+    watched(event.data);
   if (event.data == YT.PlayerState.PLAYING && !done) {
     setTimeout(stopVideo, 6000);
     done = true;
@@ -447,7 +448,10 @@ function stopVideo() {
   player.stopVideo();
 }
 
+var video_id_var;
 function playVideo(video_id){
+    //console.log("click vidoe id "+video_id);
+    video_id_var=video_id;
     $.ajax({
         url:"play_video.php",
         method:"POST",
@@ -474,4 +478,26 @@ function playVideo(video_id){
         },
         error:function(data){}
     });
+}
+
+function watched(data){
+    var course_id=$('#course_id_tag').val();
+    //var video_id=$('#video_id_tag').val();
+    
+    if(data==0){
+        console.log("video id: "+video_id_var);
+        console.log("course id:"+course_id);
+        $.ajax({
+            url:"add_is_watched.php",
+            method:"POST",
+            data:{'course_id':course_id,'video_id':video_id_var},
+            dataType:"text",
+            beforeSend:function(){},
+            success:function(data){
+                console.log(data);
+            },
+            error:function(data){}
+        });
+        
+    }
 }
