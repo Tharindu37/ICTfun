@@ -17,23 +17,27 @@
     <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
+      
+      var data
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
+        $.ajax({
+            url:"pie_chart.php",
+            mehtod:"POST",
+            data:'{}',
+            dataType:'json',
+            beforeSend:function(){},
+            success:function(data){
+                data = google.visualization.arrayToDataTable(data);
+                var options = {
+                title: 'Course Video Count',
+                is3D: true,
+                };
 
-        var options = {
-          title: 'My Daily Activities',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
+                var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                chart.draw(data, options);
+            },
+            error:function(data){}
+        });   
       }
     </script>
 
