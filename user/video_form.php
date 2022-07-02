@@ -78,12 +78,9 @@
 
                         <div class="pt-3" data-mdb-perfect-scrollbar="true" style="position: relative; height: auto;">
                             <div id="video_player" class="ratio ratio-16x9" style="width:auto; height:auto">    
-                                        <?php
-                                            require "video.php";
-                                            if($result->num_rows>0){
-                                                $first_data_row=$result->fetch_assoc();
-                                                echo $first_data_row['video_url'];
-                                        ?>
+                                        
+                                        <div id="player"></div>
+                                        
                             <!-- <iframe id="video_player"
                                 src="https://youtu.be/hT9Lgf2_dbw"
                                 title="YouTube video"
@@ -92,12 +89,9 @@
                             </div>
                         </div>
 
-                        <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
+                        <div class="text-muted justify-content-start align-items-center pe-3 pt-3 mt-2">
                             <h5 id="video_title">
-                                <?php
-                                            echo $first_data_row['video_name'];
-                                        }
-                                ?>
+                            Welcome Our Course, Select and Watch video
                             </h5>
                         </div>
 
@@ -112,6 +106,7 @@
 
         </div>
         </section>
+
 
     <script src="../script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
