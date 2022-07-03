@@ -22,8 +22,8 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                        <li class="breadcrumb-item"><a href="admin_dashboard_form.php">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Add Course</li>
                     </ol>
                     </nav>
                 </div>
@@ -44,12 +44,13 @@
                             <td scope="col">Delete</td>
                         </tr>
                         <?php
-                            $count=0;
-                            while($count<10){
+                            require "course.php";
+                            if($result->num_rows>0){
+                                while($data_row=$result->fetch_assoc()){
                         ?>
                             <tr>
-                                <th scope="row"><?php echo $count+1; ?></th>
-                                <td><input disabled type="text" placeholder="http://youtube.come/myvideo/responsive%web%develpment"></td>
+                                <th scope="row"><?php echo $data_row['course_id'] ?></th>
+                                <td><input disabled type="text" placeholder="<?php echo $data_row['course_name']; ?>"></td>
                                 <td>
                                     <i class="fas fa-edit"></i>
                                 </td>
@@ -61,7 +62,7 @@
                                 </td>
                             </tr>
                         <?php
-                                $count++;
+                                }
                             }
                         ?>
 
@@ -69,11 +70,17 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Course Title</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <button type="Submit" class="btn btn-primary">Submit</button>
+                    <form action="">
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Course Title</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFileSm" class="form-label">Select course image</label>
+                            <input class="form-control form-control-sm" id="formFileSm" type="file">
+                        </div>
+                        <button type="Submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>

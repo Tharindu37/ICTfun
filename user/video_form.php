@@ -37,7 +37,16 @@
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="dashboard_form.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">HTML</li>
+                        <?php
+                            require "get_course.php";
+                            if($result->num_rows>0){
+                                
+                            $data_row=$result->fetch_assoc();
+                        ?>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo $data_row['course_name'] ?></li>
+                        <?php
+                            }
+                        ?>
                     </ol>
                     </nav>
                 </div>

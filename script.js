@@ -552,10 +552,11 @@ $(document).ready(function(){
             },
             success:function(data){
                 $('#form_response').css('display', 'block');
-                if(data=='Registration Successfully'){
+                if(data=="Video Added Successfully"){
                     $('#form_response').removeClass('alert-danger');
                     $('#form_response').addClass('alert-success');
                     $('#form_response').text(data);
+                    window.location.replace("http://localhost/findx_project/ICTfun/admin/edit_video_form.php?course_id="+course_id);
                 }else{
                     $('#form_response').removeClass('alert-success');
                     $('#form_response').addClass('alert-danger');
