@@ -93,7 +93,7 @@
 
                         <div class="text-muted justify-content-start align-items-center pe-3 pt-3 mt-2">
                             <h5 id="video_title">
-                            Welcome Our Course, Select and Watch video
+                            
                             </h5>
                         </div>
 

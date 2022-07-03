@@ -425,7 +425,36 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //    after the API code downloads.
 var player;
 function onYouTubeIframeAPIReady() {
-  console.log("Youtube API Ready");
+    var course_id=$('#course_id_tag').val();
+    console.log("course Id"+course_id);
+    console.log("Youtube API Ready");
+    
+    $.ajax({
+        url:"first_video_load.php",
+        method:"POST",
+        data:{'course_id':course_id},
+        dataType:"json",
+        beforeSend:function(){},
+        success:function(data){
+            if(player){
+                player.destroy();
+            }
+            player = new YT.Player('player', {
+                height: '390',
+                width: '640',
+                videoId: data['video_url'],
+                playerVars: {
+                'playsinline': 1
+                },
+                events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+                }
+            });
+            $('#video_title').html(data['video_name']);
+        },
+        error:function(data){}
+    });
 }
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
