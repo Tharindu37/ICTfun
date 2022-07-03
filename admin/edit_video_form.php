@@ -1,3 +1,6 @@
+<?php
+    $course_id=$_GET['course_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +14,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #form_response{
+            display:none;
+        }
+    </style>
 </head>
 <body>
+    <input type="number" value="<?php echo $course_id; ?>" id="course_id_tag" style="display:none">
     <?php
         require "admin_header_from.php";
     ?>
@@ -39,15 +49,21 @@
                         <tr>
                             <td>Video Title</td>
                             <td>Video Number</td>
-                            <td>Url</td>
+                            <td>Video ID</td>
                             <td>Edit</td>
                             <td>Save</td>
                             <td>Delete</td>
                         </tr>
+                        <?php
+                            require "../user/video.php";
+                            if($result->num_rows>0){
+                                while($data_row=$result->fetch_assoc()){
+                                    // $course_id=$data_row['course_id'];
+                        ?>
                         <tr>
-                            <td><input disabled type="text" placeholder="HTML - 01 Responsive web development"></td>
-                            <td><input disabled type="text" placeholder="1"></td>
-                            <td><input disabled type="text" placeholder="http://youtube.come/myvideo/responsive%web%develpment"></td>
+                            <td><input disabled type="text" placeholder="<?php echo $data_row['video_name']; ?>"></td>
+                            <td><input disabled type="text" placeholder="<?php echo $data_row['video_number'] ?>"></td>
+                            <td><input disabled type="text" placeholder="<?php echo $data_row['video_url']; ?>"></td>
                             <td>
                                 <i class="fas fa-edit"></i>
                             </td>
@@ -58,71 +74,37 @@
                                 <i class="fas fa-minus-circle"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td><input disabled type="text" placeholder="HTML - 01 Responsive web development"></td>
-                            <td><input disabled type="text" placeholder="1"></td>
-                            <td><input disabled type="text" placeholder="http://youtube.come/myvideo/responsive%web%develpment"></td>
-                            <td>
-                                <i class="fas fa-edit"></i>
-                            </td>
-                            <td>
-                                <i class="fas fa-save"></i> 
-                            </td>
-                            <td>
-                                <i class="fas fa-minus-circle"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input disabled type="text" placeholder="HTML - 01 Responsive web development"></td>
-                            <td><input disabled type="text" placeholder="1"></td>
-                            <td><input disabled type="text" placeholder="http://youtube.come/myvideo/responsive%web%develpment"></td>
-                            <td>
-                                <i class="fas fa-edit"></i>
-                            </td>
-                            <td>
-                                <i class="fas fa-save"></i> 
-                            </td>
-                            <td>
-                                <i class="fas fa-minus-circle"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input disabled type="text" placeholder="HTML - 01 Responsive web development"></td>
-                            <td><input disabled type="text" placeholder="1"></td>
-                            <td><input disabled type="text" placeholder="http://youtube.come/myvideo/responsive%web%develpment"></td>
-                            <td>
-                                <i class="fas fa-edit"></i>
-                            </td>
-                            <td>
-                                <i class="fas fa-save"></i> 
-                            </td>
-                            <td>
-                                <i class="fas fa-minus-circle"></i>
-                            </td>
-                        </tr>
-
+                        <?php
+                                }
+                            }
+                        ?>
+                        
                         </table>
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Video Title</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Video Number</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Video URL</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <button type="Submit" class="btn btn-primary">Submit</button>
+                    <form id="add_video_form" action="">
+                        <div id="form_response" class="alert alert-danger" role="alert">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <span  class="input-group-text" id="">Video Title</span>
+                            <input id="video_title" name="video_title" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="">Video Number</span>
+                            <input id="video_number" name="video_number" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="">Video ID</span>
+                            <input id="video_id" name="video_id" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <button id="add_video_btn" type="button" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-
+    <script src="../script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

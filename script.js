@@ -530,3 +530,42 @@ function watched(data){
         
     }
 }
+
+//add video
+$(document).ready(function(){
+    $('#add_video_btn').click(function(){
+        var video_title=$('#video_title').val();
+        var video_number=$('#video_number').val();
+        var video_id=$('#video_id').val();
+        var course_id=$('#course_id_tag').val();
+        console.log(video_id);
+        console.log(video_number);
+        console.log(video_title);
+        console.log(course_id);
+        $.ajax({
+            url:"add_video.php",
+            method:"POST",
+            data:{'video_url':video_id,'video_name':video_title,'vidoe_number':video_number,'course_id':course_id},
+            dataType:"text",
+            beforeSend:function(){
+                $('#add_video_btn').attr('disabled', 'disabled');
+            },
+            success:function(data){
+                $('#form_response').css('display', 'block');
+                if(data=='Registration Successfully'){
+                    $('#form_response').removeClass('alert-danger');
+                    $('#form_response').addClass('alert-success');
+                    $('#form_response').text(data);
+                }else{
+                    $('#form_response').removeClass('alert-success');
+                    $('#form_response').addClass('alert-danger');
+                    $('#form_response').text(data);
+                }
+                $('#add_video_btn').attr('disabled', false);
+            },
+            error:function(data){
+
+            }
+        });
+    });
+});
