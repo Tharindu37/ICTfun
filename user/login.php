@@ -13,11 +13,24 @@
         if($result->num_rows>0){
             $row=$result->fetch_assoc();
             $user_id=$row['user_id'];
+            $user_type=$row['user_type'];
+            if($user_type=='user'){
+                $cookie_name="user_id";
+                $cookie_value=$user_id;
+                setcookie($cookie_name,$cookie_value,time()+(3600*24),"/");
+            }else if($user_type=="super_admin"){
+                $cookie_name="super_admin_id";
+                $cookie_value=$user_id;
+                setcookie($cookie_name,$cookie_value,time()+(3600*24),"/");
+            }else if($user_type=="admin"){
+                $cookie_name="admin_id";
+                $cookie_value=$user_id;
+                setcookie($cookie_name,$cookie_value,time()+(3600*24),"/");
+            }
 
-            $cookie_name="user_id";
-            $cookie_value=$user_id;
-            setcookie($cookie_name,$cookie_value,time()+(3600*24),"/");
-            echo "Login successfully";
+            setcookie('user_type',$user_type,time()+(3600*24),"/");
+            
+            echo $user_type;
         }else{
             echo "User name or Password wrong";
         }

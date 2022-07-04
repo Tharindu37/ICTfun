@@ -49,11 +49,15 @@ $(document).ready(function(){
             },
             success:function(data){
                 $('#form_response').css('display', 'block');
-                if(data=='Login successfully'){
+                if(data=='admin' || data=='user' || data=='super_admin'){
                     $('#form_response').removeClass('alert-danger');
                     $('#form_response').addClass('alert-success');
-                    $('#form_response').text(data);
-                    window.location.replace("http://localhost/findx_project/ICTfun/user/dashboard_form.php");
+                    $('#form_response').text("Login successfully");
+                    if(data=='user'){
+                        window.location.replace("http://localhost/findx_project/ICTfun/user/dashboard_form.php");
+                    }else{
+                        window.location.replace("http://localhost/findx_project/ICTfun/admin/admin_dashboard_form.php");
+                    }
                 }else{
                     $('#form_response').removeClass('alert-success');
                     $('#form_response').addClass('alert-danger');
@@ -570,3 +574,19 @@ $(document).ready(function(){
         });
     });
 });
+//add course notification
+function displayRespons(){
+    var msg=$('#msg').val();
+    if(msg!=""){
+        $('#form_response').css('display', 'block');
+        if(msg=='Course Added Successfully'){
+            $('#form_response').removeClass('alert-danger');
+            $('#form_response').addClass('alert-success');
+            $('#form_response').text(data);
+        }else{
+            $('#form_response').removeClass('alert-success');
+            $('#form_response').addClass('alert-danger');
+            $('#form_response').text(data);
+        }
+    }
+}

@@ -11,8 +11,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        #form_response{
+            display:none;
+        }
+    </style>
 </head>
-<body>
+<body onload="displayRespons()">
     <?php
         require "admin_header_from.php";
     ?>
@@ -70,22 +77,33 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    <form action="">
+                        <div id="form_response" class="alert alert-danger" role="alert">
+                            <?php
+                                $msg="";
+                                if(isset($_GET['msg'])){
+                                    $msg=$_GET['msg'];
+                                    echo $msg;
+                                }
+                            ?>
+                        </div>
+                        <input type="text" value="<?php echo $msg; ?>" style="display:none;" id="msg">
+                    <form method="POST" id="add_course_form" action="add_course.php" enctype="multipart/form-data">
                         <div class="input-group input-group-sm mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-sm">Course Title</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <input name="course_name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                         </div>
                         <div class="mb-3">
                             <label for="formFileSm" class="form-label">Select course image</label>
-                            <input class="form-control form-control-sm" id="formFileSm" type="file">
+                            <input name="course_image_url" class="form-control form-control-sm" id="formFileSm" type="file">
                         </div>
-                        <button type="Submit" class="btn btn-primary">Submit</button>
+                        <button id="add_course_btn" type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <script src="../script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
