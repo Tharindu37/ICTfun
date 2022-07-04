@@ -149,17 +149,6 @@
                         </div>
                     </div>
 
-                    <div class="row mt-3">
-                        <div class="col-12">
-                        <label class="form-label" for="user_type">Select user type</label>
-                        <select name="user_type" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                            <option value="user">User</option>
-                            <option value="super_admin">Super Admin</option>
-                        </select>
-
-                        </div>
-                    </div>
-
                     <div class="mt-4 pt-2">
                         <input id="register_btn" class="btn btn-primary btn-lg" type="submit" value="Submit" style="width:100%"/>
                     </div>

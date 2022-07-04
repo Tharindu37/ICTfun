@@ -49,15 +49,11 @@ $(document).ready(function(){
             },
             success:function(data){
                 $('#form_response').css('display', 'block');
-                if(data=='admin' || data=='user' || data=='super_admin'){
+                if(data=='Login Successfully'){
                     $('#form_response').removeClass('alert-danger');
                     $('#form_response').addClass('alert-success');
                     $('#form_response').text("Login successfully");
-                    if(data=='user'){
-                        window.location.replace("http://localhost/findx_project/ICTfun/user/dashboard_form.php");
-                    }else{
-                        window.location.replace("http://localhost/findx_project/ICTfun/admin/admin_dashboard_form.php");
-                    }
+                    window.location.replace("http://localhost/findx_project/ICTfun/user/dashboard_form.php");
                 }else{
                     $('#form_response').removeClass('alert-success');
                     $('#form_response').addClass('alert-danger');
