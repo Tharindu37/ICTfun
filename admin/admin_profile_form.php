@@ -81,7 +81,7 @@
             <div class="col">
                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                 <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="admin_dashboard_form.php">Dashboard</a></li>
                     <li class="breadcrumb-item active" aria-current="page">User Profile</li>
                 </ol>
                 </nav>
@@ -155,8 +155,8 @@
                         <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input id="admin_first_name" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $first_name; ?>" disabled>
-                            <i id="admin_first_name_edit" class="fas fa-edit"></i>
-                            <i id="admin_first_name_save" class="fas fa-save"></i>
+                            <i id="admin_first_name_edit" class="fas fa-edit" style="<?php if($user_type=='admin') echo "display:none;"; ?>"></i>
+                            <i id="admin_first_name_save" class="fas fa-save" style="<?php if($user_type=='admin') echo "display:none;"; ?>"></i>
                         </div>
                     </div>
                     <hr>
@@ -167,8 +167,8 @@
                         <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input id="admin_last_name" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $last_name; ?>" disabled>
-                            <i id="admin_last_name_edit" class="fas fa-edit"></i>
-                            <i id="admin_last_name_save" class="fas fa-save"></i>
+                            <i id="admin_last_name_edit" class="fas fa-edit" style="<?php if($user_type=='admin') echo "display:none;"; ?>"></i>
+                            <i id="admin_last_name_save" class="fas fa-save" style="<?php if($user_type=='admin') echo "display:none;"; ?>"></i>
                         </div>
                     </div>
                     <hr>
@@ -179,8 +179,8 @@
                         <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input id="admin_birthday" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $birthday; ?>" disabled>
-                            <i id="admin_birthday_edit" class="fas fa-edit"></i>
-                            <i id="admin_birthday_save" class="fas fa-save"></i>
+                            <i id="admin_birthday_edit" class="fas fa-edit" style="<?php if($user_type=='admin') echo "display:none;"; ?>"></i>
+                            <i id="admin_birthday_save" class="fas fa-save" style="<?php if($user_type=='admin') echo "display:none;"; ?>"></i>
                         </div>
                     </div>
                     <hr>
@@ -214,8 +214,8 @@
                         <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input id="admin_mobile_number" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $phone_number; ?>" disabled>
-                            <i id="admin_mobile_number_edit" class="fas fa-edit"></i>
-                            <i id="admin_mobile_number_save" class="fas fa-save"></i>
+                            <i id="admin_mobile_number_edit" class="fas fa-edit" style="<?php if($user_type=='admin') echo "display:none;"; ?>"></i>
+                            <i id="admin_mobile_number_save" class="fas fa-save" style="<?php if($user_type=='admin') echo "display:none;"; ?>"></i>
                         </div>
                     </div>
                     <hr>
@@ -226,8 +226,8 @@
                         <div class="col-sm-9 d-flex justify-content-between">
                             <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
                             <input id="admin_description" style="border:none" class="mb-0" type="text" class="form-control" placeholder="<?php echo $description; ?>" disabled>
-                            <i id="admin_description_edit" class="fas fa-edit"></i>
-                            <i id="admin_description_save" class="fas fa-save"></i>
+                            <i id="admin_description_edit" class="fas fa-edit" style="<?php if($user_type=='admin') echo "display:none;"; ?>"></i>
+                            <i id="admin_description_save" class="fas fa-save" style="<?php if($user_type=='admin') echo "display:none;"; ?>"></i>
                         </div>
                     </div>
                     <hr>
