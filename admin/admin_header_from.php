@@ -1,3 +1,19 @@
+<?php
+  require "../db_connection.php";
+
+  $name_status="Register/Login";
+  $profile_pic_url="";
+  $admin_id="";
+  if(isset($_COOKIE['admin_id'])){
+    $admin_id=$_COOKIE['admin_id'];
+    $sql_query="SELECT * FROM user WHERE user_id='$admin_id'";
+    $result=$database_connection->query($sql_query);
+    $row=$result->fetch_assoc();
+    $first_name=$row['first_name'];
+    $profile_pic_url=$row['profile_pic_url'];
+    $name_status= "Hi, ".$first_name;
+  }
+?>
 <header class="p-3 border-bottom">
         <div class="container-fluid">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -20,15 +36,15 @@
     
             <div class="dropdown text-end">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img id="header_img" src="" alt="mdo" width="32" height="32" class="rounded-circle">
+              <img id="header_img" src="<?php if($profile_pic_url=="") echo "profile_pic/pro_pic.jpg"; else echo $profile_pic_url; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
               </a>
               <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
                 <li><a class="dropdown-item" href="admin_profile_form.php"><i class="fa-solid fa-address-card"></i> Profile</a></li>
                 <li><a class="dropdown-item" href="admin_settings_form.php"><i class="fa-solid fa-gear"></i> Settings</a></li>
-                <li><a class="dropdown-item" href="../user/login_form.php"><i class="fa-solid fa-user"></i> Login</a></li>
-                <li><a class="dropdown-item" href="../user/register_form.php"><i class="fa-solid fa-right-to-bracket"></i> Register</a></li>
+                <li><a class="dropdown-item" href="admin_login_form.php"><i class="fa-solid fa-user"></i> Login</a></li>
+                <li><a class="dropdown-item" href="admin_register_form.php"><i class="fa-solid fa-right-to-bracket"></i> Register</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="signout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign out</a></li>
+                <li><a class="dropdown-item" href="admin_logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
               </ul>
             </div>
           </div>

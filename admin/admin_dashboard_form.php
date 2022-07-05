@@ -1,4 +1,26 @@
+<?php
+  require "../db_connection.php";
+    
+    if(isset($_COOKIE['admin_id'])){
+        $admin_id=$_COOKIE['admin_id'];
+        if($admin_id==""){
+            header("location:admin_login_form.php");
+        }
+    }else{
+        header("location:admin_login_form.php");
+    }
 
+    
+    $user_type="";
+    if(isset($_COOKIE['admin_id'])){
+        $admin_id=$_COOKIE['admin_id'];
+        $sql_query="SELECT * FROM user WHERE user_id='$admin_id'";
+        $result=$database_connection->query($sql_query);
+        $row=$result->fetch_assoc();
+        
+        $user_type=$row['user_type'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +77,6 @@
             <div class="col">
                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                 <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                 </ol>
                 </nav>
@@ -117,7 +138,7 @@
                                     <div class="course-div">
                                         <div class="card" style="width: auto;">
                                             <input id="couser_id_class" type="number" value="" style="display:none">
-                                            <a href="edit_video_form.php?course_id=<?php echo $course_id; ?>">
+                                            <a href="edit_video_form.php?course_id=<?php echo $course_id; ?>" disabled>
                                             <img onclick="getCourseId(<?php echo $course_id; ?>)" style="width:200px ; height:200px ;" src="../user/<?php echo $data_row['course_image_url']; ?>" class="course_image card-img-top" alt="...">
                                             </a>
                                             <div class="card-body">
@@ -138,7 +159,7 @@
                         </a>
                         <hr>
                         <a style="text-decoration: none;" href="block_form.php" class="d-grid">
-                        <button type="button" class="btn btn-warning">Block Employee</button>
+                        <button style="<?php if($user_type=='admin') echo "display:none;"; ?>" type="button" class="btn btn-warning">Block Employee</button>
                         </a>
                         
                         
