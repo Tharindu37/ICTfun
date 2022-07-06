@@ -94,28 +94,33 @@
                 <div class="card-body p-0">
                         <div class="card mb-4 mb-md-0">
                         <div class="card-body">
-                            <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
+                            <p class="mb-4"><span class="text-primary font-italic me-1">Student Enroll Courses</span>
                             </p>
-                            <p class="mb-1" style="font-size: .77rem;">HTML</p>
+                            <?php
+                                require "course.php";
+                                if($result->num_rows>0){
+                                    while($data_row=$result->fetch_assoc()){
+                                        $course_id=$data_row['course_id'];
+                                        $sql_query="SELECT * FROM my_course WHERE course_id=$course_id";
+                                        $my_course_result=$database_connection->query($sql_query);
+                                        $enroll_course=$my_course_result->num_rows;
+
+                                        $sql_query1="SELECT user_id FROM user WHERE user_type='user'";
+                                        $my_course_result1=$database_connection->query($sql_query1);
+                                        $user_count=$my_course_result1->num_rows;
+
+                                        $enroll_percentage=($enroll_course/$user_count)*100.0;
+
+                            ?>
+                            <p class="mb-1" style="font-size: .77rem;"><?php echo $data_row['course_name'] ?></p>
                             <div class="progress rounded" style="height: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                            <div class="progress-bar" role="progressbar" style="width: <?php echo $enroll_percentage; ?>%" aria-valuenow="80"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <p class="mt-4 mb-1" style="font-size: .77rem;">CSS</p>
-                            <div class="progress rounded" style="height: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <p class="mt-4 mb-1" style="font-size: .77rem;">Javascript</p>
-                            <div class="progress rounded" style="height: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <p class="mt-4 mb-1" style="font-size: .77rem;">PHP</p>
-                            <div class="progress rounded" style="height: 5px;">
-                            <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+                            <?php
+                                    }
+                                }
+                            ?>
                         </div>
                         </div>
                 </div>
